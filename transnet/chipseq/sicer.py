@@ -29,7 +29,7 @@ class SicerPeak(Interval):
         """
         Constructor
         """
-        super(Interval, self).__init__(chromosome, start, stop)
+        super(SicerPeak, self).__init__(chromosome, start, stop)
         self.island_read_count = island_read_count
         self.control_read_count = control_read_count
         self.p_value = p_value

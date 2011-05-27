@@ -14,7 +14,9 @@ if sys.version_info[:2] < (2,6):
     raise ImportError(m % sys.version_info[:2])
 del sys
 
-from transnet import release
-
 __author__ = "Matthew Peterson"
+
+from transnet.chipseq import *
+import transnet.chipseq
+import transnet.genome
 

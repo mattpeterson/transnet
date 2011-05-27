@@ -28,6 +28,11 @@ class Interval(object):
 
         return False
 
+    def get_genome_features(self, genome):
+        """
+        Get overlapping features and classifications
+        """
+
     def __str__(self):
         """
         String representation of interval

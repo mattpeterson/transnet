@@ -1,2 +1,1 @@
-__author__ = 'petersmw'
-  
+import transnet.chipseq.sicer
