@@ -1,5 +1,5 @@
 """
-Describes a genomic interval.
+Class descrbing an interval on the genome.
 """
 __author__ = 'petersmw'
 
@@ -32,6 +32,24 @@ class Interval(object):
         """
         Get overlapping features and classifications
         """
+        hits = []
+        
+#        for g in genome.features(True):
+#            if self.overlaps(g):
+#                hits.append(g)
+
+        for i in genome.intergenic_regions:
+            print i.chromosome, i.chrom_start, i.chrom_end
+            if self.overlaps(i):
+                print i.chromosome, i.chrom_start, i.chrom_end
+                hits.append(i)
+
+        if hits:
+            print(",".join([h.locus for h in hits]))
+
+    def _filter_hits(self):
+        hits = set()
+        return hits
 
     def __str__(self):
         """

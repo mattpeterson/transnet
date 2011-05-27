@@ -20,6 +20,12 @@ def parse(handle):
                          float(tokens[6]), float(tokens[7]))
         yield peak
 
+def read(handle):
+    """
+    Returns a list, if we need to keep this around
+    """
+    return list(parse(handle))
+
 class SicerPeak(Interval):
     """
     A region of binding identified by SICER
