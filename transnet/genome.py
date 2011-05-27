@@ -84,6 +84,9 @@ class Gene(Interval):
         self.locus = locus
         self.strand = strand
 
+    def __str__(self):
+        return self.locus
+
 
 class IntergenicRegion(Interval):
     """
