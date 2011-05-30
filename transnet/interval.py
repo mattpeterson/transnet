@@ -28,24 +28,18 @@ class Interval(object):
 
         return False
 
-    def get_genome_features(self, genome):
+    def get_genome_features(self, genome, genic=True, intergenic=True):
         """
         Get overlapping features and classifications
         """
         hits = []
-        
-#        for g in genome.features(True):
-#            if self.overlaps(g):
-#                hits.append(g)
 
-        for i in genome.intergenic_regions:
-            print i.chromosome, i.chrom_start, i.chrom_end
-            if self.overlaps(i):
-                print i.chromosome, i.chrom_start, i.chrom_end
-                hits.append(i)
+        for f in genome.features(True):
+            if self.overlaps(f):
+                hits.append(f)
 
         if hits:
-            print(",".join([h.locus for h in hits]))
+            print(",".join([str(h) for h in hits]))
 
     def _filter_hits(self):
         hits = set()
@@ -56,6 +50,6 @@ class Interval(object):
         String representation of interval
         """
         return "%s:%d-%d" % (self.chromosome, self.chrom_start, self.chrom_end)
-    
 
-  
+
+

@@ -35,7 +35,7 @@ def _read_bed(handle):
     Reads a genome annotation from a BED-formatted file
     """
     genes = []
-    
+
     handle = iter(handle)
     for line in handle:
         tokens = line.rstrip("\r\n").split()
@@ -47,7 +47,7 @@ def _read_bed(handle):
 
     genes = _sort_genes(genes)
     intergenic_regions = _create_intergenic_regions(genes)
-    
+
 
     return genes, intergenic_regions
 
@@ -72,7 +72,7 @@ def _read_broad_summary(handle, mapping=None):
             if chromosome not in mapping:
                 raise ValueError("Chromosome '%s' not found in mapping." %
                                  chromosome)
-            
+
             chromosome = mapping[chromosome]
 
         g = Gene(chromosome, start, stop, locus, strand)
@@ -81,7 +81,7 @@ def _read_broad_summary(handle, mapping=None):
         genes.append(g)
 
     intergenic_regions = _create_intergenic_regions(genes)
-    
+
     return genes, intergenic_regions
 
 def _sort_genes(genes):
@@ -118,42 +118,18 @@ class IntergenicRegion(Interval):
         """
 
         """
-        self.left_gene = first_gene
-        self.right_gene = second_gene
-        super(IntergenicRegion, self).__init__(property(self.get_chrom),
-                                               property(self.get_start),
-                                               property(self.get_end))
         if first_gene.chromosome != second_gene.chromosome:
             raise ValueError("Genes must be on same chromosome.")
 
-    def get_chrom(self):
-        """
-        Method for chromosome property
-        """
-        return self.left_gene.chromosome
-
-    def get_start(self):
-        """
-        Method for chrom_start property
-        """
-        return self.left_gene.chrom_end
-
-    def get_end(self):
-        """
-        Method for chrom_end property
-        """
-        return self.right_gene.chrom_end
-
-    def get_locus(self):
-        """
-        Method for locus property
-        """
-        return self.left_gene.locus + "-" + self.right_gene.locus
-
-    locus = property(get_locus)
+        self.left_gene = first_gene
+        self.right_gene = second_gene
+        super(IntergenicRegion, self).__init__(self.left_gene.chromosome,
+                                               self.left_gene.chrom_end,
+                                               self.right_gene.chrom_start)
+        self.identifier = "%s-%s" % (self.left_gene.locus, self.right_gene.locus)
 
     def __str__(self):
-        return self.locus
+        return self.identifier
 
 class Genome(object):
     """
