@@ -1,10 +1,13 @@
 """
 Class descrbing an interval on the genome.
 """
-__author__ = 'petersmw'
+__author__ = 'Matthew Peterson'
 
 class Interval(object):
-
+    """
+    An interval along the genome.  Superclass for any feature mapped to
+    the Genome (ChIP peaks, genes, intergenic regions, etc.)
+    """
     def __init__(self, chromosome = "", start=1, stop = 1):
         """
         Create a new Interval.
@@ -18,7 +21,7 @@ class Interval(object):
 
     def overlaps(self, other):
         """
-        Test whether this interval overlaps another on the genome.
+        Tests whether or not this interval overlaps another.
         """
         if self.chromosome != other.chromosome:
             return False
@@ -38,8 +41,7 @@ class Interval(object):
             if self.overlaps(f):
                 hits.append(f)
 
-        if hits:
-            print(",".join([str(h) for h in hits]))
+        return hits
 
     def _filter_hits(self):
         hits = set()
@@ -50,6 +52,15 @@ class Interval(object):
         String representation of interval
         """
         return "%s:%d-%d" % (self.chromosome, self.chrom_start, self.chrom_end)
+    
+    def as_bed(self):
+        """
+        Writes the interval as a BED field
+        """
+        return "%s\t%d\t%d" % (self.chromosome, self.chrom_start, 
+                               self.chrom_end)
+
+
 
 
 

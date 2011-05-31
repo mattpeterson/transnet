@@ -7,15 +7,21 @@ from collections import defaultdict
 
 __author__ = 'Matthew Peterson'
 
-def read(handle, format, **kwargs):
+def read(handle, format, mapping=None):
     """
-    Reads a genome from a BED file
+    Read a genome from an annotation.
+    
+    Parameters:
+    
+    - `handle`: The handle to be read from
+    - `format`: The type of file to be read.  Currently, there is support
+                for BED formatted files ('bed'), or files downloaded from the 
+                Broad Institute ('broad')
+    - `mapping`: A dictionary mapping of chromosome names to another set. Can
+                 be used if two files use different naming systems to avoid
+                 having to rewrite files.
     """
     if format == "broad":
-        if "mapping" in kwargs:
-            mapping = kwargs["mapping"]
-        else:
-            mapping = None
         (genes, intergenic_regions) = _read_broad_summary(handle, mapping)
     elif format == "bed":
         (genes, intergenic_regions) = _read_bed(handle)
@@ -80,6 +86,7 @@ def _read_broad_summary(handle, mapping=None):
 
         genes.append(g)
 
+    genes = _sort_genes(genes)
     intergenic_regions = _create_intergenic_regions(genes)
 
     return genes, intergenic_regions
@@ -133,9 +140,9 @@ class IntergenicRegion(Interval):
 
 class Genome(object):
     """
-    An entire genome
+    A genome (comprised of genic regions and intergenic regions)
 
-    TODO: want this backed by a dictionary for random access
+    TODO: Incorporate exons for RPKM calculations
     """
     def __init__(self):
         self.gene_dict = {}
@@ -148,7 +155,7 @@ class Genome(object):
 
         # TODO: implement check to see if key already exists.
         for gene, annotation in mapping_dict:
-            if gene not in genes:
+            if gene not in self.genes:
                 raise ValueError("Gene %s not in Genome" % gene)
 
             self.gene_dict[gene].annotation[key].append(annotation)
