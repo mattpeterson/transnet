@@ -22,13 +22,16 @@ def read(handle, format, mapping=None):
                  having to rewrite files.
     """
     if format == "broad":
-        (genes, intergenic_regions) = _read_broad_summary(handle, mapping)
+        genes = _read_broad_summary(handle, mapping)
     elif format == "bed":
-        (genes, intergenic_regions) = _read_bed(handle)
+        genes = _read_bed(handle)
     else:
         raise ValueError("Invalid file type.")
 
     genome = Genome()
+    genes = _sort_genes(genes)
+    intergenic_regions = _create_intergenic_regions(genes)
+    
     genome.intergenic_regions = intergenic_regions
 
     for g in genes:
@@ -52,10 +55,8 @@ def _read_bed(handle):
         genes.append(Gene(chromosome, start, stop, locus))
 
     genes = _sort_genes(genes)
-    intergenic_regions = _create_intergenic_regions(genes)
 
-
-    return genes, intergenic_regions
+    return genes
 
 def _read_broad_summary(handle, mapping=None):
     """
@@ -86,10 +87,7 @@ def _read_broad_summary(handle, mapping=None):
 
         genes.append(g)
 
-    genes = _sort_genes(genes)
-    intergenic_regions = _create_intergenic_regions(genes)
-
-    return genes, intergenic_regions
+    return genes
 
 def _sort_genes(genes):
     return sorted(genes, key=attrgetter('chromosome', 'chrom_start'))
