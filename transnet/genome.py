@@ -117,11 +117,17 @@ class Gene(Interval):
 
 class IntergenicRegion(Interval):
     """
-    An intergenic region.
+    A region between two genes
     """
     def __init__(self, first_gene, second_gene):
         """
-
+        Create a new IntergenicRegion.  Throws an error if the genes are
+        not on the same chromosome.
+        
+        Parameters:
+        
+        - `first_gene`: The gene to the "left"
+        - `second_gene`: The gene to the "right"
         """
         if first_gene.chromosome != second_gene.chromosome:
             raise ValueError("Genes must be on same chromosome.")
