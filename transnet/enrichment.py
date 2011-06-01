@@ -13,7 +13,3 @@ def read_mapping(handle, key="function"):
         features[tokens[0]] = tokens[1]
     
     return features
-
-class EnrichmentTest(object):
-    def _read_mapping(handle):
-        pass

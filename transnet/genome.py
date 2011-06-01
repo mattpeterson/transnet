@@ -10,9 +10,9 @@ __author__ = 'Matthew Peterson'
 def read(handle, format, mapping=None):
     """
     Read a genome from an annotation.
-    
+
     Parameters:
-    
+
     - `handle`: The handle to be read from
     - `format`: The type of file to be read.  Currently, there is support
                 for BED formatted files ('bed'), or files downloaded from the 
@@ -31,7 +31,7 @@ def read(handle, format, mapping=None):
     genome = Genome()
     genes = _sort_genes(genes)
     intergenic_regions = _create_intergenic_regions(genes)
-    
+
     genome.intergenic_regions = intergenic_regions
 
     for g in genes:
@@ -42,6 +42,9 @@ def read(handle, format, mapping=None):
 def _read_bed(handle):
     """
     Reads a genome annotation from a BED-formatted file
+
+    Parameters:
+    - `handle`: Handle to the file to be read
     """
     genes = []
 
@@ -123,9 +126,9 @@ class IntergenicRegion(Interval):
         """
         Create a new IntergenicRegion.  Throws an error if the genes are
         not on the same chromosome.
-        
+
         Parameters:
-        
+
         - `first_gene`: The gene to the "left"
         - `second_gene`: The gene to the "right"
         """
@@ -165,6 +168,13 @@ class Genome(object):
             self.gene_dict[gene].annotation[key].append(annotation)
 
     def features(self, intergenic=False):
+        """
+        Return an iterator over the set of all features in the genome.
+
+        Parameters:
+        - `intergenic`: A boolean indicating whether to include intergenic
+                        regions
+        """
         for g in self.gene_dict:
             yield self.gene_dict[g]
 

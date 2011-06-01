@@ -9,6 +9,9 @@ __author__ = 'petersmw'
 def parse(handle):
     """
     Returns an iterator of SicerPeaks
+
+    Parameters:
+    - `handle`: A file handle to the SICER output file to be parsed
     """
     handle = iter(handle)
 
@@ -23,6 +26,9 @@ def parse(handle):
 def read(handle):
     """
     Returns a list, if we need to keep this around
+
+    Parameters:
+    - `handle`: A file handle to the SICER output file to be read
     """
     return list(parse(handle))
 
@@ -41,3 +47,4 @@ class SicerPeak(Interval):
         self.p_value = p_value
         self.fold_change = fold_change
         self.fdr = fdr
+
