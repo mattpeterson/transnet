@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00a07456-51a9-40f5-a79f-dc4aef0eface" name="Default" comment="" />
+    <list default="true" id="00a07456-51a9-40f5-a79f-dc4aef0eface" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/transnet/chipseq/poisson.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/transnet/chipseq/chip_peak.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/transnet.iws" afterPath="$PROJECT_DIR$/transnet.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/transnet/chipseq/sicer.py" afterPath="$PROJECT_DIR$/transnet/chipseq/sicer.py" />
+    </list>
     <ignored path="transnet.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,7 +67,7 @@
       <file leaf-file-name="genome.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transnet/genome.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="184" column="45" selection-start="4906" selection-end="4906" vertical-scroll-proportion="0.0">
+            <state line="183" column="0" selection-start="5219" selection-end="5219" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,16 +76,7 @@
       <file leaf-file-name="sicer.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transnet/chipseq/sicer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="28" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="interval.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/transnet/interval.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="87" selection-start="693" selection-end="693" vertical-scroll-proportion="0.22053231">
+            <state line="51" column="37" selection-start="1648" selection-end="1648" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -98,7 +94,25 @@
       <file leaf-file-name="enrichment.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transnet/enrichment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0">
+            <state line="15" column="0" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="interval.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/transnet/interval.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="47" selection-start="729" selection-end="729" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="poisson.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/transnet/chipseq/poisson.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="23" selection-start="387" selection-end="387" vertical-scroll-proportion="0.3041825">
               <folding />
             </state>
           </provider>
@@ -120,9 +134,10 @@
       <list>
         <option value="$PROJECT_DIR$/transnet/inference/mni.py" />
         <option value="$PROJECT_DIR$/transnet/enrichment.py" />
-        <option value="$PROJECT_DIR$/transnet/chipseq/sicer.py" />
         <option value="$PROJECT_DIR$/transnet/genome.py" />
         <option value="$PROJECT_DIR$/transnet/interval.py" />
+        <option value="$PROJECT_DIR$/transnet/chipseq/sicer.py" />
+        <option value="$PROJECT_DIR$/transnet/chipseq/poisson.py" />
       </list>
     </option>
   </component>
@@ -176,7 +191,6 @@
     </navigator>
     <panes>
       <pane id="Favorites" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -195,58 +209,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="transnet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="transnet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="transnet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="transnet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="transnet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="transnet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inference" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="transnet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="transnet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="transnet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chipseq" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -282,6 +247,26 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="PUREUNITTEST" value="true" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+        <option name="PhingTarget" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="transnet" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -438,14 +423,14 @@
         <option name="repoAuthor" value="mattpeterson" />
         <option name="repoName" value="transnet" />
         <option name="url" value="https://github.com" />
-        <option name="useHttpAuthentication" value="false" />
-        <option name="useProxy" value="false" />
+        <option name="useHttpAuthentication" value="true" />
+        <option name="useProxy" value="true" />
         <username>mattpeterson</username>
       </GitHub>
     </servers>
   </component>
   <component name="ToolWindowManager">
-    <frame x="164" y="22" width="1336" height="936" extended-state="0" />
+    <frame x="247" y="32" width="1336" height="936" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -455,13 +440,13 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885087" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3084693" sideWeight="0.9987775" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30769232" sideWeight="0.67114913" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -521,19 +506,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/transnet/genome.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="45" selection-start="4906" selection-end="4906" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transnet/chipseq/sicer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="28" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transnet/interval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="87" selection-start="693" selection-end="693" vertical-scroll-proportion="0.22053231">
-          <folding />
-        </state>
+        <state line="183" column="0" selection-start="5219" selection-end="5219" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/transnet/inference/mni.py">
@@ -543,7 +516,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/transnet/enrichment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0" />
+        <state line="15" column="0" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transnet/chipseq/sicer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="37" selection-start="1648" selection-end="1648" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transnet/interval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="47" selection-start="729" selection-end="729" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transnet/chipseq/poisson.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="23" selection-start="387" selection-end="387" vertical-scroll-proportion="0.3041825">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

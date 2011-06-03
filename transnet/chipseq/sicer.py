@@ -39,7 +39,17 @@ class SicerPeak(Interval):
     def __init__(self, chromosome, start, stop, island_read_count,
                  control_read_count, p_value, fold_change, fdr):
         """
-        Constructor
+        Creates a new SicerPeak object
+
+        Parameters:
+        - `chromosome`: The chromosome/sequence the peak is found on
+        - `start`: The start position (zero-based) on the chromosome
+        - `stop`: The stop position (zero-based) on the chromosome
+        - `island_read_count`: Number of reads in the peak/island
+        - `control_read_count`: Number of reads on control
+        - `p_value`: Probability that region is enriched
+        - `fold_change`: Fold enrichment over control
+        - `fdr`: False discovery rate
         """
         super(SicerPeak, self).__init__(chromosome, start, stop)
         self.island_read_count = island_read_count
