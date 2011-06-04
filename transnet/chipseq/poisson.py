@@ -38,15 +38,20 @@ class PoissonPeak(Interval):
     def __init__(self, chromosome, start, stop, height, mean_p, shift):
         """
         Create a new Poisson-identified Peak
-        
-        Parameters:
-        - `chromosome`: Chromosome/sequence peak is on
-        - `start`: Position (1-based) on the chromosome of start of peak
-        - `stop`: Position (1-based) on the chromosome of peak end
-        - `mean_p`: Mean p-value of the region
-        - `shift`: Max of cross_correlation(forward, reverse)
+
+        :param chromosome: chromosome
+        :type chromosome: string
+        :param start: start position on chromosome
+        :type start: int
+        :param stop: stop position on chromosome
+        :type stop: int
+        :param mean_p: mean p-value in region
+        :type mean_p: float
+        :param shift: shift between forward-reverse peaks
+        :type shift: int
         """
         super(PoissonPeak, self).__init__(chromosome, start - 1, stop - 1)
         self.height = height
         self.mean_pval = mean_p
         self.shift = shift
+
