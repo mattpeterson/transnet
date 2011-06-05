@@ -10,9 +10,10 @@ def parse(handle, chromosome = "Genome"):
     """
     Parse a set of peaks.  Returns an iterator
 
-    Parameters:
-    - `handle`: The handle to be read
-    - `chromosome`: The chromosome
+    :param handle: The handle to be read
+    :type handle: file
+    :param chromosome: the chromosome the peaks are found on
+    :type chromosome: string
     """
     for line in handle:
         tokens = line.rstrip("\r\n").split("\t")
@@ -38,6 +39,10 @@ def score(ip_coverage, bg_coverage=None):
     :type ip_coverage: GenomeCoverage
     """
     raise NotImplementedError("Scoring has yet to be implemented.")
+
+def _score_no_bg(ip_coverage, num_std, min_length):
+    pass
+
 
 class PoissonPeak(ChipPeak):
     """
