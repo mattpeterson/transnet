@@ -2,9 +2,9 @@
 Parser for the SICER ChIP-seq program.  This is designed to parse
 the summary file generated as output
 """
-from transnet.interval import Interval
+from transnet.chipseq.chip_peak import ChipPeak
 
-__author__ = 'petersmw'
+__author__ = 'Matthew Peterson'
 
 def parse(handle):
     """
@@ -32,7 +32,7 @@ def read(handle):
     """
     return list(parse(handle))
 
-class SicerPeak(Interval):
+class SicerPeak(ChipPeak):
     """
     A region of binding identified by SICER
     """
