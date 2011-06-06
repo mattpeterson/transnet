@@ -1,5 +1,5 @@
 """Base class describing a ChIP-seq Peak"""
-from transnet import Interval
+from transnet.interval import Interval
 from transnet.genome import IntergenicRegion
 
 class ChipPeak(Interval):
@@ -41,7 +41,7 @@ class ChipPeak(Interval):
         hits = set()
         for f in annotation.features(True):
             if self.overlaps(f):
-                hits.append(f)
+                hits.add(f)
 
         if filter_hits:
             self._filter_hits(hits)
@@ -60,7 +60,7 @@ class ChipPeak(Interval):
             if h.__class__ == IntergenicRegion:
                 if h.left_gene in hits:
                     to_remove.add(h.left_gene)
-                if h.right_Gene in hits:
+                if h.right_gene in hits:
                     to_remove.add(h.right_gene)
 
         for h in to_remove:

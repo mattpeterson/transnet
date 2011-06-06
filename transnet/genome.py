@@ -2,7 +2,7 @@
 Classes describing Genomes and genes
 """
 from operator import attrgetter
-from transnet.interval import Interval
+from interval import Interval
 from collections import defaultdict
 
 __author__ = 'Matthew Peterson'

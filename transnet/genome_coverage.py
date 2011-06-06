@@ -33,7 +33,7 @@ class GenomeCoverage(object):
             sequence, position, reverse, forward = line.rstrip("\r\n").split()
             self._coverage[(sequence, position)] = (int(reverse), int(forward))
 
-    def get_coverage(sequence, position):
+    def get_coverage(self, sequence, position):
         """
         Get the coverage at a given position
 
@@ -49,5 +49,6 @@ class DiskBasedGenomeCoverage(object):
     Disk-based Genome Coverage, using pytables.  Used to allow for the loading
     of larger genomes without worrying about memory limitations.
     """
+    # TODO: Look into MemMaps and PyTables.
     pass
 

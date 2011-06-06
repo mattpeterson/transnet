@@ -8,15 +8,14 @@ TransNet
 
 from __future__ import absolute_import
 
-import sys
+__author__ = "Matthew Peterson"
 
-import chipseq
-import genome
+
+import sys
 
 if sys.version_info[:2] < (2,6):
     m = "Python version 2.6 or greater is required for TransNet (%d.%d detected)."
     raise ImportError(m % sys.version_info[:2])
 del sys
 
-__author__ = "Matthew Peterson"
 

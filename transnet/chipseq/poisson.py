@@ -17,8 +17,8 @@ def parse(handle, chromosome = "Genome"):
     """
     for line in handle:
         tokens = line.rstrip("\r\n").split("\t")
-        peak = PoissonPeak(chromosome, int(tokens[1]), int(tokens[2]),
-                           int(tokens[3]), float(tokens[4]), int(tokens[5]))
+        peak = PoissonPeak(chromosome, int(tokens[0]), int(tokens[1]),
+                           int(tokens[2]), float(tokens[3]), int(tokens[4]))
         yield peak
 
 def read(handle, chromosome = "Genome"):
