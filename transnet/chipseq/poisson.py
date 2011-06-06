@@ -69,3 +69,7 @@ class PoissonPeak(ChipPeak):
         self.mean_pval = mean_p
         self.shift = shift
 
+    def score(self):
+        return self.height
+
+

@@ -64,6 +64,11 @@ def _read_bed(handle):
 def _read_broad_summary(handle, mapping=None):
     """
     Reads a genome from the Broad Institute's genome summaries
+
+    :param handle: the handle to be read from
+    :type handle: file
+    :param mapping: a mapping between chromosome naming schemes
+    :type mapping: dict
     """
     genes = []
 
