@@ -6,21 +6,25 @@ from transnet.chipseq.chip_peak import ChipPeak
 
 __author__ = 'Matthew Peterson'
 
-def parse(handle):
+def parse(handle, method = "sicer"):
     """
     Returns an iterator of SicerPeaks
 
     Parameters:
     - `handle`: A file handle to the SICER output file to be parsed
     """
+
+    peak_class_map = {"sicer" : SicerPeak, "sicer_rb" : SicerRBPeak}
+
+    if method not in peak_class_map:
+        raise KeyError("Unsupported method. Select one of 'sicer' or "
+                       "sicer_rb")
+
     handle = iter(handle)
 
     # Skip blank lines
     for line in handle:
-        tokens = line.rstrip("\r\n").split()
-        peak = SicerPeak(tokens[0], int(tokens[1]), int(tokens[2]),
-                         int(tokens[3]), float(tokens[4]), float(tokens[5]),
-                         float(tokens[6]), float(tokens[7]))
+        peak = peak_class_map[method](line)
         yield peak
 
 def read(handle):
@@ -57,4 +61,25 @@ class SicerPeak(ChipPeak):
         self.p_value = p_value
         self.fold_change = fold_change
         self.fdr = fdr
+
+class SicerRBPeak(ChipPeak):
+    """
+    A region of binding identified by SICER (no background)
+    """
+    def __init__(self, input_line):
+        """
+        Creates a new SicerRBPeak
+
+        Reads a line from the output file from SICER_rb.sh - This is of the
+        format
+
+        chromosome start stop score
+
+        :param input_line: line from output file
+        :type input_line: string
+        """
+        tokens = input_line.rstrip("\r\n").split()
+        super(SicerRBPeak, self).__init__(tokens[0], int(tokens[1]),
+                                        int(tokens[2]))
+        self.score = float(tokens[3]) 
 
