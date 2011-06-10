@@ -41,7 +41,7 @@ def score(ip_coverage, bg_coverage=None):
     raise NotImplementedError("Scoring has yet to be implemented.")
 
 def _score_no_bg(ip_coverage, num_std, min_length):
-    pass
+    raise NotImplementedError("Scoring has yet to be implemented.")
 
 
 class PoissonPeak(ChipPeak):
