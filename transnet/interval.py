@@ -53,14 +53,10 @@ class Interval(object):
         """
         return "%s:%d-%d" % (self.chromosome, self.chrom_start, self.chrom_end)
     
-    def as_bed(self):
+    def as_bed(self, name="peak"):
         """
         Writes the interval as a BED field
         """
-        return "%s\t%d\t%d" % (self.chromosome, self.chrom_start, 
-                               self.chrom_end)
-
-
-
-
-
+        return "%s\t%d\t%d\t%s\t%f" % (self.chromosome, self.chrom_start, 
+                                       self.chrom_end, self.name, self.score())
+S
