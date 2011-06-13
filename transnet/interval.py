@@ -59,4 +59,3 @@ class Interval(object):
         """
         return "%s\t%d\t%d\t%s\t%f" % (self.chromosome, self.chrom_start, 
                                        self.chrom_end, self.name, self.score())
-S
