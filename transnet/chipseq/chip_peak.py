@@ -39,6 +39,10 @@ class ChipPeak(Interval):
         :rtype tuple
         """
         hits = set()
+        upstream = set()
+        downstream = set()
+        genic = set()
+
         for f in annotation.features(True):
             if self.overlaps(f):
                 hits.add(f)
@@ -46,7 +50,22 @@ class ChipPeak(Interval):
         if filter_hits:
             self._filter_hits(hits)
 
-        return hits
+        for h in hits:
+            if h.__class__.__name__ == "Gene":
+                genic.add(h)
+            elif h.__class__.__name__ == "IntergenicRegion":
+                # Now check to see which genes are up and downstream
+                if h.left_gene.strand == "-":
+                    upstream.add(h.left_gene)
+                else:
+                    downstream.add(h.left_gene)
+
+                if h.right_gene.strand == "+":
+                    upstream.add(h.right_gene)
+                else:
+                    downstream.add(h.right_gene)
+
+        return upstream, downstream, genic
 
     def _filter_hits(self, hits):
         """Remove genic regions also implicated by intergenic overlaps.

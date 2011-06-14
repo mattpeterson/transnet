@@ -5,7 +5,7 @@ class GenomeCoverage(object):
     """The coverage along a genome"""
 
     def __init__(self, infile):
-        self._coverage= {}
+        self._coverage= {} # Would this work better as a dict of dicts?
 
     def _read_bu_wig(self, handle, sequence_name):
         """Reads a 'wig' file .  Note that this is not the same as the wiggle
@@ -43,6 +43,23 @@ class GenomeCoverage(object):
         :type position: int
         """
         return self._coverage[(sequence, position)]
+
+    def get_coverage_as_array(self, length):
+        """
+        Returns the coverage for a given chromosome as a numpy.array.
+        """
+        coverage = np.array(zeros(length))
+        for i in range(0,length):
+            coverage[i] = self.coverage(sequence, i)
+
+    def plot_coverage(chromosome, length, peaks = None):
+        """
+        Plots the coverage along the genome.  Will also highlight peaks, if
+        they are passed to the function
+        """
+        coverage = self.get_coverage_as_array(length)
+
+
 
 class DiskBasedGenomeCoverage(object):
     """
