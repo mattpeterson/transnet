@@ -2,7 +2,7 @@
 """Classes describing coverage along the genome"""
 __author__ = "Matthew Peterson"
 
-class SequenceCoverage(object):
+class GenomeCoverage(object):
     """The coverage along a genome"""
 
     def __init__(self, infile):
@@ -22,7 +22,7 @@ class SequenceCoverage(object):
         self.chromosomes[sequence_name] = () 
         for line in handle:
             position, total, reverse, forward = line.rstrip("\r\n").split()
-            self.coverage[(sequence, position)] = (int(reverse), int(forward))
+            self.coverage[(sequence_name, position)] = (int(reverse), int(forward))
 
     def _read_swig(self, swigfile_handle, on_disk = False):
         """Reads in a SWIG file.  This file consists of delimited lines
