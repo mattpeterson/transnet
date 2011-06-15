@@ -1,11 +1,12 @@
+#!/usr/bin/env python
 """Classes describing coverage along the genome"""
 __author__ = "Matthew Peterson"
 
-class GenomeCoverage(object):
+class SequenceCoverage(object):
     """The coverage along a genome"""
 
     def __init__(self, infile):
-        self._coverage= {} # Would this work better as a dict of dicts?
+        self._coverage = {} # Would this work better as a dict of dicts?
 
     def _read_bu_wig(self, handle, sequence_name):
         """Reads a 'wig' file .  Note that this is not the same as the wiggle
@@ -51,15 +52,6 @@ class GenomeCoverage(object):
         coverage = np.array(zeros(length))
         for i in range(0,length):
             coverage[i] = self.coverage(sequence, i)
-
-    def plot_coverage(chromosome, length, peaks = None):
-        """
-        Plots the coverage along the genome.  Will also highlight peaks, if
-        they are passed to the function
-        """
-        coverage = self.get_coverage_as_array(length)
-
-
 
 class DiskBasedGenomeCoverage(object):
     """
