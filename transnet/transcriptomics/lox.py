@@ -12,7 +12,7 @@ def read(lox_handle, read_pvals = False):
 
 class LOXMeasurement(object):
     
-    scale = None
+    _scale_value = None
     
     def __init__(self, level, lower_confidence, upper_confidence):
         self.expression_level = level
@@ -33,16 +33,23 @@ class LOXExperiment(object):
     Describes a LOX experiment
     """
     def __init__(self, lox_handle):
-        self.measurements = {}
-    
-    def _parse_first_line(handle):
+        self.measurements = []
+        self.indices = []
+
+    def _parse_first_line(self, handle):
         """
         Gets all of the information from the header line.  Used to read
-        the data
+        the data, and initializes the measurements and indices 
         """
         tokens = handle.readline().rstrip("\r\n").split("\t")
-        num_experiments = len(tokens[2:])
+        num_experiments = len(tokens[2:]) / 3
         
+        for i in range(2, 2 + num_experiments):
+            self.measurements.append({})
+            self.indices.append(tokens[i])
+    
+    def __getitem__(self, key):
+        key_idx = 
     
     def experiments(self):
         return self.measurements.keys()
