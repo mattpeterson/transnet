@@ -34,7 +34,7 @@ class LOXExperiment(object):
     """
     def __init__(self, lox_handle):
         self.measurements = []
-        self.indices = []
+        self.experiments = []
 
     def _parse_first_line(self, handle):
         """
@@ -49,7 +49,11 @@ class LOXExperiment(object):
             self.indices.append(tokens[i])
     
     def __getitem__(self, key):
-        key_idx = 
-    
-    def experiments(self):
-        return self.measurements.keys()
+        """
+        Gets measurements for a given experiment.
+        
+        :param key: The experiment to get
+        :type key: string
+        """
+        key_idx = self.experiments.index(key)
+        return self.measurements[key_idx]
