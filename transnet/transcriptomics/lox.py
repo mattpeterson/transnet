@@ -83,6 +83,13 @@ class LOXExperiment(object):
             self.measurements.append({})
             self.experiments.append(tokens[i])
     
+    def scale(rpkm_dict):
+        """
+        Scales the set of experiments in order to get some measure of
+        absolute expression.
+        """
+        pass
+    
     def __getitem__(self, key):
         """
         Gets measurements for a given experiment.
