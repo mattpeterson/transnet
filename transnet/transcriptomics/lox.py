@@ -60,6 +60,7 @@ class LOXExperiment(object):
         param: handle: The file handle to read from
         type: handle: file 
         """
+        #TOOD: need to rename this.
         for line in handle:
             tokens = line.rstrip("\r\n").split("\t")
             # Create a new measurement for each 
