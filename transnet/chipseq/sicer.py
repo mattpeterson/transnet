@@ -27,7 +27,7 @@ def parse(handle, method = "sicer"):
         peak = peak_class_map[method](line)
         yield peak
 
-def read(handle):
+def read(handle, method = "sicer"):
     """
     Returns a list, if we need to keep this around
 
@@ -39,9 +39,8 @@ def read(handle):
 class SicerPeak(ChipPeak):
     """
     A region of binding identified by SICER
-    """
-    def __init__(self, chromosome, start, stop, island_read_count,
-                 control_read_count, p_value, fold_change, fdr):
+    """    
+    def __init__(self, input_line):
         """
         Creates a new SicerPeak object
 
@@ -55,12 +54,17 @@ class SicerPeak(ChipPeak):
         - `fold_change`: Fold enrichment over control
         - `fdr`: False discovery rate
         """
-        super(SicerPeak, self).__init__(chromosome, start, stop)
-        self.island_read_count = island_read_count
-        self.control_read_count = control_read_count
-        self.p_value = p_value
-        self.fold_change = fold_change
-        self.fdr = fdr
+        tokens = input_line.rstrip("\r\n").split("\t")
+        super(SicerPeak, self).__init__(tokens[0], int(tokens[1]),
+                                       int(tokens[2]))
+        self.island_read_count = int(tokens[3])
+        self.control_read_count = int(tokens[4])
+        self.p_value = float(tokens[5])
+        self.fold_change = float(tokens[6])
+        self.fdr = float(tokens[7])
+    
+    def score(self):
+        return self.fold_change
 
 class SicerRBPeak(ChipPeak):
     """
@@ -81,5 +85,8 @@ class SicerRBPeak(ChipPeak):
         tokens = input_line.rstrip("\r\n").split()
         super(SicerRBPeak, self).__init__(tokens[0], int(tokens[1]),
                                         int(tokens[2]))
-        self.score = float(tokens[3]) 
+        self.score = float(tokens[3])
+    
+    def score(self):
+        return self.score
 
