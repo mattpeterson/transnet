@@ -1,6 +1,7 @@
 """Base class describing a ChIP-seq Peak"""
 from transnet.interval import Interval
 from transnet.genome import IntergenicRegion
+from operator import attrgetter
 
 class ChipPeak(Interval):
     """An enriched region, or "peak" identified by ChIP-seq analysis."""
@@ -67,6 +68,7 @@ class ChipPeak(Interval):
         
         # Add upstream and downstream genes for genic peaks
         genes = list(annotation.features(False))
+        genes = sorted(genes, key=attrgetter('chromosome', 'chrom_start'))
         for g in genic:
             gene_idx = genes.index(g)
             
