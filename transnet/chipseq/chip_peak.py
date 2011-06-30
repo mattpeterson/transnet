@@ -77,7 +77,7 @@ class ChipPeak(Interval):
             if next_idx == len(gene_idx):
                 next_idx = 0
             if previous_idx == -1:
-                previous_idx = len(gene_idx) - 1
+                previous_idx = len(genes) - 1
             
             if genes[previous_idx].strand == "-":
                 upstream.add(g)
