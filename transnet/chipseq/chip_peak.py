@@ -64,6 +64,30 @@ class ChipPeak(Interval):
                     upstream.add(h.right_gene)
                 else:
                     downstream.add(h.right_gene)
+        
+        # Add upstream and downstream genes for genic peaks
+        genes = list(annotation.features(False))
+        for g in genic:
+            gene_idx = genes.index(g)
+            
+            previous_idx = gene_idx - 1
+            next_idx = gene_idx + 1
+            
+            # Bad news for linear chromosomes. Fix this.
+            if next_idx == len(gene_idx):
+                next_idx = 0
+            if previous_idx == -1:
+                previous_idx = len(gene_idx) - 1
+            
+            if genes[previous_idx].strand == "-":
+                upstream.add(g)
+            else:
+                downstream.add(g)
+            
+            if genes[next_idx].strand == "+":
+                upstream.add(g)
+            else:
+                downstream.add(g)
 
         return upstream, downstream, genic
 
