@@ -80,14 +80,14 @@ class ChipPeak(Interval):
                 previous_idx = len(genes) - 1
             
             if genes[previous_idx].strand == "-":
-                upstream.add(g)
+                upstream.add(genes[previous_idx])
             else:
-                downstream.add(g)
+                downstream.add(genes[previous_idx])
             
             if genes[next_idx].strand == "+":
-                upstream.add(g)
+                upstream.add(genes[next_idx])
             else:
-                downstream.add(g)
+                downstream.add(genes[next_idx])
 
         return upstream, downstream, genic
 
