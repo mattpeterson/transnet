@@ -74,7 +74,7 @@ class ChipPeak(Interval):
             next_idx = gene_idx + 1
             
             # Bad news for linear chromosomes. Fix this.
-            if next_idx == len(gene_idx):
+            if next_idx == len(genes):
                 next_idx = 0
             if previous_idx == -1:
                 previous_idx = len(genes) - 1
