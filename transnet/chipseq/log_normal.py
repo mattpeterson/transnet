@@ -9,7 +9,7 @@ def parse(peaks_handle, chromosome = "Genome"):
     for line in peaks_handle:
         tokens = line.rstrip("\r\n").split("\t")
         peak = LogNormalPeak(chromosome, int(tokens[0]), int(tokens[1]),
-                             int(tokens[2]), int(tokens[3]))
+                             int(tokens[2]), int(tokens[4]))
         yield peak
 
 def read(peaks_handle, chromosome = "Genome"):
